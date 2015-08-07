@@ -56,13 +56,7 @@ install-data-hook:
 	cd $(DESTDIR)$(libdir)/opencryptoki/stdll && \
 		ln -sf libpkcs11_sw.so PKCS11_SW.so
 	$(MKDIR_P) $(DESTDIR)$(localstatedir)/lib/opencryptoki/swtok/TOK_OBJ
-	$(CHGRP) pkcs11 $(DESTDIR)$(localstatedir)/lib/opencryptoki/swtok/TOK_OBJ
-	$(CHGRP) pkcs11 $(DESTDIR)$(localstatedir)/lib/opencryptoki/swtok
-	$(CHMOD) 0770 $(DESTDIR)$(localstatedir)/lib/opencryptoki/swtok/TOK_OBJ
-	$(CHMOD) 0770 $(DESTDIR)$(localstatedir)/lib/opencryptoki/swtok
 	$(MKDIR_P) $(DESTDIR)$(lockdir)/swtok
-	$(CHGRP) pkcs11 $(DESTDIR)$(lockdir)/swtok
-	$(CHMOD) 0770 $(DESTDIR)$(lockdir)/swtok
 
 uninstall-hook:
 	if test -d $(DESTDIR)$(libdir)/opencryptoki/stdll; then \
