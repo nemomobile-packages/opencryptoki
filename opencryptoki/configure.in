@@ -40,7 +40,7 @@ AC_PROG_YACC
 
 dnl Define custom variables
 
-lockdir=$localstatedir/lock/opencryptoki
+lockdir=/run/lock/opencryptoki
 AC_SUBST(lockdir)
 
 logdir=$localstatedir/log/opencryptoki
