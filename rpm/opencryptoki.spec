@@ -33,6 +33,7 @@ Requires(postun): shadow-utils
 %{_libdir}/pkcs11/methods
 %{_libdir}/pkcs11/stdll
 %{_unitdir}/*.service
+%{_presetdir}/50-%{name}.preset
 %{_tmpfilesdir}/*.conf
 %dir %attr(770,root,pkcs11) %{_localstatedir}/lib/%{name}
 %dir %attr(770,root,pkcs11) %{_localstatedir}/lib/%{name}/swtok
@@ -122,6 +123,10 @@ D /run/lock/opencryptoki/swtok 0770 root pkcs11
 D /run/lock/opencryptoki/tpm 0770 root pkcs11
 EOF
 
+mkdir -p %{buildroot}/%{_presetdir}
+cat <<EOF > %{buildroot}/%{_presetdir}/50-%{name}.preset
+disable pkcsslotd.service
+EOF
 
 %pre
 groupadd -rf pkcs11
